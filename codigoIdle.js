@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-var dinero = 1050; // tu dinero actual
+var dinero = 10; // tu dinero actual
 var nivelMadera=0; //indica el nivel que estan las "minas" de dicho recurso, a mayor nivel, mas ingresos de ese recurso
 var dificultadMadera=1; //indica cuantos click son necesarios para obtener la ganancia de dicho recurso
 var progresoMadera=0; //indica el porcentaje de click faltantes para obtener ganancia de un recurso que ya hice
@@ -37,6 +37,8 @@ Recurso.prototype.subirNivel = function(recurso){
 	this.calcularCostoLevear(recurso);	
 	elemento = document.querySelector("#dinero");
 	elemento.innerHTML = dinero;
+	elemento = document.querySelector("#porcentaje"+recurso);
+	elemento.innerHTML = "Profit:"+this.ganancia();
 }
 Recurso.prototype.comprarArtesano = function(artesano,recurso){
 	if (dinero >= this.costoArtesano){
@@ -54,13 +56,29 @@ Recurso.prototype.fabricar = function(recurso){
 	if (this.nivel>0){
 		this.progreso = this.progreso +(100/this.dificultad);
 		if(this.progreso >= 100){
+			var elemento2 = document.querySelector("#porcentaje"+recurso);
+			var pos2 = 600;
+			elemento2.style.width= pos2 +'px';
+			elemento2.style.background= "#33DC49";
+			
 			dinero = dinero + (this.ganancia())
 			var elemento = document.querySelector("#dinero");
 			elemento.innerHTML =dinero;
 			this.progreso=0;
+			window.setTimeout(function()
+				{var elemento = document.querySelector("#porcentaje"+recurso);
+				var pos = 0;
+				elemento.style.width= pos +'px';
+				elemento.style.background = "rgba(0,0,150,.2)";
+				elemento.innerHTML = "Profit:"+this.ganancia();
+				},100)
 		}
-		var elemento = document.querySelector("#porcentaje"+recurso);
-		elemento.innerHTML = this.progreso;
+		else{
+			var elemento = document.querySelector("#porcentaje"+recurso);
+			var pos = (this.progreso/100)*600;
+			elemento.style.width= pos +'px';
+			elemento.innerHTML = "Profit:"+this.ganancia();
+			}
 	}
 }
 
@@ -72,7 +90,7 @@ function setRecurso(mina,recurso,artesano){	//A esta funcion le paso como parame
 	elemento = document.querySelector("#levear" + recurso);
     elemento.addEventListener('click', function(){mina.subirNivel(recurso)}, false);//HACER ESTO EN TODOS!!!!	
 	elemento = document.querySelector("#porcentaje" + recurso);
-	elemento.innerHTML = mina.progreso;    
+	elemento.innerHTML = "Unbuilt";    
     mina.calcularCostoArtesano(artesano);
     elemento = document.querySelector("#comprar" + artesano);
     elemento.addEventListener('click', function(){mina.comprarArtesano(artesano,recurso)}, false);    

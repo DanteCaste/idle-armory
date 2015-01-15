@@ -4,14 +4,14 @@
   <meta charset="iso-8859-1">
   <meta name="description" content="Ejemplo de HTML5">  
   <meta name="keywords" content="HTML5, CSS3, JavaScript">
-  <title>Tienda de Armas Coconet</title>
+  <title>Legendary armory</title>
   <link rel="stylesheet" href="estilosIdleArmas.css">
   <script src="codigoIdle.js"></script>
 </head>
 <body>
 <div id="agrupar">
   <header id="cabecera">
-    <h1>legendary armory</h1>
+    <h1>Legendary armory</h1>
   </header>
   <!--<nav id="menu">
     <ul>
@@ -22,7 +22,7 @@
     </ul>
   </nav>-->
   <section id="seccion">
-    <article>
+    <article id="Madera">
       <header>
         <hgroup>
           <h1>Wooden weapons</h1>
@@ -30,7 +30,9 @@
         </hgroup>        
       </header>
       <button id="fabricarMadera">Work</button>
-      <p id="porcentajeMadera">porcentaje</p>
+      <div class="barra">
+      	<div id="porcentajeMadera">porcentaje</div>
+	  </div>
 	  <p id="levearMadera">Improve carpentry</p>
 	  <p id="costoMadera"></p>
     </article>
@@ -42,7 +44,9 @@
         </hgroup>
       </header>
       <button id="fabricarHierro">Work</button>	  
-	  <p id="porcentajeHierro">porcentaje</p>	 
+	  <div class="barra">
+	  	<div id="porcentajeHierro">porcentaje</div>
+	  </div>
 	  <p id="levearHierro">Improve smithy</p>
 	  <p id="costoHierro"></p>
     </article>
@@ -54,7 +58,9 @@
         </hgroup>
       </header>
       <button id="fabricarAcero">Work</button>
-	  <p id="porcentajeAcero">porcentaje</p>
+	  <div class="barra">
+	  	<div id="porcentajeAcero">porcentaje</div>
+	  </div>
 	  <p id="levearAcero">Improve smelter</p>
 	  <p id="costoAcero"></p>
     </article>

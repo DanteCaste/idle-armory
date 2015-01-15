@@ -16,7 +16,7 @@ header{
 }
 body {
   text-align: center;
-  background-image: url("stone_wall_texture.png");
+  background-image: url("stone_wall_texture2.png");
   background-repeat: repeat;
 }
 #agrupar {
@@ -61,6 +61,33 @@ body {
   padding: 20px;
   border-top: 2px solid #999999;
 }
+.barra {
+	/*position: relative;*/
+	width: 600px;
+	margin: 16px;
+	padding: 2px;
+	border: 1px solid #CCCCCC;
+	background: #EEEEEE;
+}
+#porcentajeMadera {
+	/*position: absolute;*/
+	width: 0px;
+	height: 16px;
+	background: rgba(0,0,150,.2);
+}
+#porcentajeHierro {
+	/*position: absolute;*/
+	width: 0px;
+	height: 16px;
+	background: rgba(0,0,150,.2);
+	/*transition: 0.5s;*/
+}
+#porcentajeAcero {
+	/*position: absolute;*/
+	width: 0px;
+	height: 16px;
+	background: rgba(0,0,150,.2);
+}
 article {
   background: #FFFBCC;
   border: 1px solid #999999;
@@ -76,7 +103,7 @@ time {
 figcaption {
   font: italic 14px verdana, sans-serif;
 }
-div {
+/*div:not(#porcentajeMadera){
   width: 100px;
   margin: 20px;
   padding: 10px;
@@ -85,4 +112,5 @@ div {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
+}*/
+
